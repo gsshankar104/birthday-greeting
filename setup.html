@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Greeting Setup</title>
+    <!-- Link to the main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Inline styles are generally discouraged, but kept here as per original backup -->
+    <!-- It's better practice to move these styles into style.css -->
+    <style>
+        /* Styles specific to setup page, could be moved to style.css */
+        body {
+            /* Override background for setup page if needed, or keep the main one */
+            background-color: #f0f4f8; /* Light blue-grey background */
+        }
+        /* Using existing .setup-container class from style.css */
+    </style>
+</head>
+<body>
+    <div class="setup-container">
+        <h1>Create Your Birthday Greeting</h1>
+
+        <div class="form-group">
+            <label for="friend-name">Friend's Name:</label>
+            <input type="text" id="friend-name-input" placeholder="E.g., Alex">
+        </div>
+
+        <div class="form-group">
+            <label for="birthday-message">Birthday Message:</label>
+            <textarea id="birthday-message-input" rows="4" placeholder="Write your heartfelt message here..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="photo-upload">Upload Photo (Optional):</label>
+            <input type="file" id="photo-upload" accept="image/*">
+            <small>Upload a picture of your friend. (Tip: Use smaller image files, e.g., less than 1MB, for best results when sharing the link.)</small>
+            <img id="photo-preview" src="#" alt="Photo Preview" style="max-width: 100px; margin-top: 10px; display: none;">
+        </div>
+
+        <div class="form-group">
+            <label for="birthday-date">Birthday Date (Optional):</label>
+            <input type="date" id="birthday-date-input">
+            <small>Select the birthday date for a special highlight.</small>
+        </div>
+
+        <div class="button-group">
+            <button id="preview-btn">Preview Greeting</button>
+            <button id="generate-btn">Generate Link</button>
+        </div>
+
+        <!-- Preview Area -->
+        <div id="greeting-preview">
+            <h3>Preview:</h3>
+            <!-- This iframe will load birthday.html with parameters -->
+            <iframe id="preview-frame" src="about:blank" width="100%" height="400px" style="border:1px solid #ccc; border-radius: 5px;"></iframe>
+        </div>
+
+        <!-- Link Sharing Area -->
+        <div class="link-container">
+            <p>Share this link with your friend:</p>
+            <input type="text" id="share-link" readonly>
+            <button id="copy-btn">Copy</button>
+        </div>
+
+    </div>
+
+    <script src="setup.js"></script>
+</body>
+</html>

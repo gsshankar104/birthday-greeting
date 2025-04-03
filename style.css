@@ -1,0 +1,363 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffebee;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+h1 {
+    color: #ff4081; /* Pink */
+    font-size: 3em;
+    margin-bottom: 10px;
+    animation: pulse 2s infinite;
+}
+
+h2 {
+    color: #7b1fa2; /* Purple */
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Photo Section */
+.photo-section {
+    margin-bottom: 20px;
+}
+
+.photo-frame {
+    width: 200px;
+    height: 200px;
+    border: 5px solid #ff4081;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #eee; /* Placeholder background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Date Display */
+.date-display {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Button Styles */
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    background: linear-gradient(45deg, #ff4081, #f50057);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Centered */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    display: flex; /* Use flexbox for side-by-side layout */
+    align-items: center; /* Vertically center items */
+}
+
+.card-left {
+    flex: 1; /* Take up available space */
+    padding-right: 20px;
+}
+
+.card-left img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.card-right {
+    flex: 2; /* Take up more space */
+    text-align: left;
+}
+
+.card-right p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Decorations */
+.decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Allow clicks through */
+    z-index: 0;
+}
+
+.balloon {
+    position: absolute;
+    width: 50px;
+    height: 65px;
+    background-color: rgba(255, 64, 129, 0.8); /* Pink */
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background-color: #555;
+}
+
+.balloon:nth-child(1) {
+    left: 10%;
+    background-color: rgba(123, 31, 162, 0.8); /* Purple */
+    animation-duration: 7s;
+}
+
+.balloon:nth-child(2) {
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 214, 0, 0.8); /* Yellow */
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+.balloon:nth-child(3) {
+    right: 10%;
+    background-color: rgba(0, 188, 212, 0.8); /* Cyan */
+    animation-duration: 6.5s;
+    animation-delay: 0.5s;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-100px) rotate(10deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+    .photo-frame { width: 150px; height: 150px; }
+    button { padding: 12px 25px; font-size: 1.1em; }
+    .modal-content { flex-direction: column; text-align: center; margin: 20% auto; }
+    .card-left { padding-right: 0; padding-bottom: 15px; }
+    .card-right { text-align: center; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    .photo-frame { width: 120px; height: 120px; }
+    button { padding: 10px 20px; font-size: 1em; }
+    .container { padding: 15px; }
+    .modal-content { width: 90%; padding: 20px; }
+    .card-right p { font-size: 1em; }
+}
+
+/* Setup Page Specific Styles (if needed, or keep in setup.html <style>) */
+.setup-container {
+    max-width: 600px;
+    margin: 50px auto; /* Add top margin */
+    padding: 30px; /* Increase padding */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Align form elements left */
+}
+
+.setup-container h1 {
+    text-align: center; /* Center the main heading */
+    margin-bottom: 30px; /* Add space below heading */
+    color: #7b1fa2; /* Purple */
+    font-size: 2.5em; /* Adjust size */
+    animation: none; /* Disable pulse for setup heading */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Space between form groups */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px; /* Space between label and input */
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 12px; /* Increase padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding in width */
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px; /* Minimum height */
+}
+
+.form-group input[type="file"] {
+    padding: 5px; /* Adjust padding for file input */
+}
+
+.button-group {
+    text-align: center; /* Center buttons */
+    margin-top: 30px; /* Space above buttons */
+}
+
+.button-group button {
+    margin: 0 10px; /* Space between buttons */
+}
+
+#greeting-preview {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: none; /* Hidden initially */
+}
+
+#greeting-preview h3 {
+    margin-top: 0;
+    color: #7b1fa2;
+    text-align: center;
+}
+
+.link-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e8f5e9; /* Light green background */
+    border: 1px solid #a5d6a7; /* Green border */
+    border-radius: 5px;
+    display: none; /* Hidden initially */
+    text-align: center;
+}
+
+.link-container p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#share-link {
+    width: calc(100% - 100px); /* Adjust width to fit button */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-size: 0.9em;
+    background-color: #fff;
+}
+
+#copy-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#copy-btn:hover {
+    background-color: #45a049;
+}
+
+#copy-btn:active {
+    background-color: #3e8e41;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="birthday-text">Happy Birthday!</h1>
+        <h2 id="friend-name">Friend</h2>
+        
+        <div class="photo-section">
+            <div class="photo-frame">
+                <img id="photo-placeholder" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWVlZWVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgYWxpZ25tZW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiM5OTkiPlBpY3R1cmU8L3RleHQ+PC9zdmc+" alt="Friend's Photo">
+            </div>
+        </div>
+
+        <div class="date-display" id="date-display"></div>
+        
+        <button id="reveal-button">Click Here For Your Message!</button>
+        
+        <div class="modal" id="message-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="card-left">
+                    <img src="https://via.placeholder.com/150" alt="Celebration Image">
+                </div>
+                <div class="card-right">
+                    <p id="birthday-message"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="decorations">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
